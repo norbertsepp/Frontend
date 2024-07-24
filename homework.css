@@ -1,4 +1,10 @@
+:root {
+    --button-violet-color: rgb(61, 6, 113);
+} 
 
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -116,3 +122,39 @@ li {
     font-style: oblique;
 }
 
+.navbutton {
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    background-color: var(--button-violet-color);
+    display: inline-block;
+    width: 15em;
+    padding: 0.1em;
+    margin: 0.5em;
+}
+
+@media screen and (min-width: 900px) {
+    article {
+        padding: 80px 40px;
+        border: 1px solid yellowgreen;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    
+    body {
+        background-color: rgb(119, 183, 183);
+        line-height: 90%;
+    }
+    h1 {
+        background-color: crimson;
+    }
+}
+
+@media (prefers-color-scheme: dark)
+{
+    body {
+        background-color:rgb(6, 77, 77);
+        color:rgb(35, 119, 34)
+    }
+}
