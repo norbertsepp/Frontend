@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="hazi.css">
+    <link rel="stylesheet" href="homework.css">
     <title>Wigner's thesis on Maths</title>
 </head>
-
 <body>
 <header>
     The Unreasonable Effectiveness of Mathematics in the Natural Sciences by Eugene Wigner, the famous Hungarian physicist
@@ -154,7 +153,7 @@ Amongst the responses the thesis received include:
 </ul>
 </article>
 <hr>
-<form id="send-article" action="hf1.html">
+<form id="send-article" action="">
     <p class="form-title">
         Cikk küldése ismerősnek
     </p>
@@ -176,7 +175,7 @@ Amongst the responses the thesis received include:
     <label for="age">
         Korod: 
     </label>
-    <input class="form-field" type="number" id="age" name="age">
+    <input class="form-field" type="number" id="age" name="age" min="18" title="Nagykorúság kötelező!">
     <br>
     <label for="msg">
         Üzenet:*: 
@@ -187,7 +186,7 @@ Amongst the responses the thesis received include:
     <label id="i-accept" for="agree">
         Elfogadom a felhasználási feltételeket.
     </label>
-    <input type="checkbox" name="agree" id="agree">
+    <input type="checkbox" name="agree" id="agree" required>
     <p>
         *: Kötelezően kitöltendő
     </p>
