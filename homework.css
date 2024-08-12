@@ -2,6 +2,7 @@
     --body-bg: lightgray;
     --dark-bg: rgb(21, 54, 54);
     --dark-color: blanchedalmond;
+    --aside-color: blanchedalmond;
     --highlight-bg: rgb(136, 205, 205);
     --highlight-color: black;
     --highlight-font: 1.8rem "Verdana" sans-serif small-caps bold;
@@ -62,8 +63,9 @@ div.head-title {
 }
 
 aside {
-    padding: 1.5em;
-    width: 80%;
+    background-color: var(--dark-color);
+    padding: 2rem;
+    text-align:right;
 }
 
 #bottom, #top {
@@ -80,14 +82,6 @@ hr {
     color: rgb(44, 11, 11);
     border: 3px solid;
     margin: 3em;
-}
-
-h1 {
-    background-color: var(--highlight-bg);
-    color: var(--highlight-color);
-    font: var(--highlight-font);
-    font-size: 2rem;
-    padding: 1em;
 }
 
 .titles {
