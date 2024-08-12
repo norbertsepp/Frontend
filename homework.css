@@ -1,5 +1,17 @@
 :root {
-    --button-buy-color: rgb(61, 6, 113);
+    --body-bg: lightgray;
+    --dark-bg: rgb(21, 54, 54);
+    --dark-color: blanchedalmond;
+    --highlight-bg: rgb(136, 205, 205);
+    --highlight-color: black;
+    --highlight-font: 1.8rem "Verdana" sans-serif small-caps bold;
+    --btn-bg: rgba(2, 63, 156, 0.5);
+    --btn-color: white;
+    --btn-font: 0.8rem sans-serif;
+    --form-bg:rgb(126, 14, 230);
+    --form-color: lightgrey;
+    --form-dark-bg: violet;
+    --form-dark-color: black;
 } 
 
 * {
@@ -7,37 +19,20 @@
 }
 
 body {
+    background-color: var(--body-bg);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    width: 80%;
+    font-weight: 400;
+    width: 90%;
     margin: auto;
-    background-color: beige;
-    line-height: 1.5em;;
-}
-
-aside {
-    font-weight: 100;
-    background-color: bisque;
-    padding: 1.5em;
-    width: 80%;
-}
-
-#bottom {
-    background-color: coral;
-    padding: 3rem;
-    border:rgb(12, 144, 34) dashed 3px;
-    display: block;
-}
-
-#top {
-    background-color: cyan;
-    padding: 3rem;
-    border:red dashed 3px;
-    display: block;
+    line-height: 1.5em;
 }
 
 header {
+    background-color: var(--highlight-bg);
+    color: var(--highlight-color);
+    width:80%;
+    margin: auto;
+    position: relative;
     font-size: 2em;
     font-weight: 700;
     margin-top: 2rem;
@@ -46,30 +41,72 @@ header {
     text-align:center;
 }
 
+.author {
+    font-size: 0.3em;
+    font-style: italic;
+    text-align: right;
+    padding-right: 3em;
+}
+
+div.theme-selector {
+    display: inline-block;
+    position: absolute;
+    left: -10%;
+    font-weight: 200;
+    font-size: 0.3em;
+}
+
+div.head-title {
+    position: relative;
+    bottom: 1em;
+}
+
+aside {
+    padding: 1.5em;
+    width: 80%;
+}
+
+#bottom, #top {
+    background-color: var(--highlight-bg);
+    color: var(--highlight-color);
+    font: var(--highlight-font);
+    display: block;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 3rem;
+}
+
 hr {
-    color: brown;
+    color: rgb(44, 11, 11);
     border: 3px solid;
     margin: 3em;
 }
 
 h1 {
+    background-color: var(--highlight-bg);
+    color: var(--highlight-color);
+    font: var(--highlight-font);
     font-size: 2rem;
     padding: 1em;
-    color: azure;
-    background-color: darkgreen;
 }
 
 .titles {
     font-family: 'Courier New', Courier, monospace;
     font-size: 200%;
-    color: yellow;
-    background-color: blue;
     width: 50%;
     padding: 0.5em;
+    background-color: var(--highlight-bg);
+    color: var(--highlight-color);
 }
 
 img {
     width: 10%;
+}
+
+li {
+    list-style-type: circle;
+    list-style-position: outside;
+    margin-bottom: 2rem;
 }
 
 .profile-pic {
@@ -79,13 +116,12 @@ img {
     border: solid 1px black;
 }
 
-form {
+form#send-article {
+    background-color: var(--form-bg);
+    color: var(--form-color);
     padding: 2rem;
-    background-color: var(--button-buy-color);
     width: 70%;
     margin: 10px auto;
-    color: white;
-
 }
 
 .form-field {
@@ -98,57 +134,79 @@ form {
 
 .form-button {
     display: block;
-    width: 10%;
-    padding: 1em;
-    background-color: rgb(9, 163, 163);
-    color: brown;
-    font-size: 1.3em;
+    font-size: 1.1em;
     margin: auto;
+    margin-bottom: 2rem;
 }
 
 .form-title {
     margin-top:1em;
     margin-bottom: 2em;
-    font-size: 3em;
+    font-size: 120%;
 }
 
 #i-accept {
     margin: 2em 0;
     padding: 1em;
-    border: solid rgb(36, 7, 7) 2px;
     width: 35%;
 }
 
-li {
-    font-style: oblique;
+
+.navbutton, btn-buy {
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    font: var(--btn-font);
+    text-align: center;
 }
 
 .navbutton {
-    color: white;
-    font-size: 0.8em;
-    text-align: center;
-    background-color: var(--button-buy-color);
     display: inline-block;
-    width: 15em;
-    padding: 0.1em;
+    padding: 0.5em;
     margin: 0.5em;
+    text-decoration: none;
+    font-style: oblique;
 }
 
-@media screen and (max-width: 1400px) {
+
+.btn-buy {
+    font-size: 0.5rem;
+    width:auto;
+    padding: 0.3rem;
+    float: right;
+}
+
+.book-list-container {
+    width: 95%;
+    margin: auto;
+}
+
+.explanation {
+    padding: 2rem 0;
+    font-size: 0.8em;
+}
+
+@media screen and (min-width: 600px) {
+    article {
+        padding: 80px 40px;
+        border: 1px solid yellowgreen;
+    }
+    form#send-article {
+        background-color: rgb(30, 138, 134);
+    }
+}
+
+@media screen and (min-width: 1200px) {
     input.form-button {
         display: block;
         width: 20%;
         font-size: smaller;
         margin-bottom:2em;
+    }   
+    form#send-article {
+        background-color: var(--form-bg);
     }
 }
 
-@media screen and (min-width: 900px) {
-    article {
-        padding: 80px 40px;
-        border: 1px solid yellowgreen;
-    }
-}
 
 @media screen and (max-width: 360px) {
     body {
@@ -158,12 +216,23 @@ li {
     h1 {
         background-color: crimson;
     }
+
+    form {
+        background-color: yellowgreen;
+    }
 }
 
 @media (prefers-color-scheme: dark)
 {
     body {
-        background-color:rgb(6, 77, 77);
-        color:rgb(35, 119, 34)
+        background-color: var(--dark-bg);
+        color:var(--dark-color);
+    }
+    hr {
+        color: black;
+    }
+    form {
+        background-color: var(--form-dark-bg);
+        color: var(--form-dark-color);
     }
 }
