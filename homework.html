@@ -12,6 +12,12 @@
 <header class="display-4">
         The Unreasonable Effectiveness of Mathematics in the Natural Sciences <br><address class="author">by Eugene Wigner, the famous Hungarian physicist</address>
 </header>
+<div class="searchbar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+    </svg>
+    <input type="text" id="search-bar" placeholder="Keresés a szövegben" onkeydown="highlightWord(this.value)">
+</div>
 <p>
     <a id="top" href="#bottom" title="Jump to bottom of page">
         <span class="subtitle">
@@ -19,6 +25,7 @@
         </span>
     </a>
 </p>
+
 <article>
 <h1 class="display-4" id="intro">
     Introduction
@@ -203,15 +210,30 @@ Amongst the responses the thesis received include:
     </a>
 </footer> 
 <script>
-    const dok = document.body.innerText.replaceAll('\n', ' ');
-    wordList = dok.split(' ');
+    const dok = document.body.innerHTML;
+    wordList = document.body.innerText.replaceAll('\n', ' ').split(' ');
     wordCount = wordList.length;
     readingTime = Math.ceil(wordCount / 183);
+    console.log(dok);
     console.log("Reading time is: ", readingTime, ' minutes');
     header_ = document.querySelector("header");
     const newNode = document.createElement("p");
     newNode.innerHTML = '<div class="article readtime">Article reading time is ' + readingTime.toString() + " minutes.</div>";
     header_.appendChild(newNode);
+
+    function highlightWord(txt) {
+        console.log(txt);
+        let dok2 = dok;
+        let replaceText = '<span style="background-color:yellow;">' + txt + '</span>'
+        newtxt = dok2.replaceAll(txt, replaceText);
+        document.body.innerHTML = newtxt;
+    }
+
+   /*
+    searchbar = document.querySelector(".searchbar input");
+    searchbar.addEventListener("keydown", highlightWord);
+    */
 </script>
+
 </body>
 </html>

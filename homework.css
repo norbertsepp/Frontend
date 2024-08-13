@@ -93,6 +93,10 @@ hr {
     color: var(--highlight-color);
 }
 
+.searchbar {
+    margin: 0 0 1em 0;
+}
+
 img {
     width: 10%;
 }
