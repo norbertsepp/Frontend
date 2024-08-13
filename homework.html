@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="homework.css">
 </head>
 <body>
-<header>
+<header class="display-4">
         The Unreasonable Effectiveness of Mathematics in the Natural Sciences <br><address class="author">by Eugene Wigner, the famous Hungarian physicist</address>
 </header>
 <p>
@@ -20,7 +20,7 @@
     </a>
 </p>
 <article>
-<h1 class="display-1" id="intro">
+<h1 class="display-4" id="intro">
     Introduction
 </h1>
 <a class="navbutton" href="#observations">
@@ -35,7 +35,7 @@
     structure often points the way to further advances in that theory and to empirical predictions. Mathematical theories often have predictive power in describing nature.
 </p>
 <img class="profile-pic" alt="Eugene Wigner" src="https://ahf.nuclearmuseum.org/wp-content/uploads/2015/03/Eugene%20Wigner_01.jpg">
-<p class="titles" id="observations" >
+<p class="display-4" id="observations" >
     Observations and Arguments
 </p>
 <a href="#intro" class="navbutton">
@@ -104,7 +104,7 @@
     discovered by David Edward Hughes in 1879, around the time of James Clerk Maxwell's death.
     <img class="profile-pic img-thumbnail" alt="James Clerk Maxwell" src="https://upload.wikimedia.org/wikipedia/en/4/42/Db_James_Clerk_Maxwell_in_his_40s_-2-7.jpg">
 </p>
-<p class="titles" id="responses">
+<p class="display-4" id="responses">
     Responses
 </p>
 <a href="#intro" class="navbutton" target="_blank">
@@ -202,5 +202,16 @@ Amongst the responses the thesis received include:
         </span>
     </a>
 </footer> 
+<script>
+    const dok = document.body.innerText.replaceAll('\n', ' ');
+    wordList = dok.split(' ');
+    wordCount = wordList.length;
+    readingTime = Math.ceil(wordCount / 183);
+    console.log("Reading time is: ", readingTime, ' minutes');
+    header_ = document.querySelector("header");
+    const newNode = document.createElement("p");
+    newNode.innerHTML = '<div class="article readtime">Article reading time is ' + readingTime.toString() + " minutes.</div>";
+    header_.appendChild(newNode);
+</script>
 </body>
 </html>
