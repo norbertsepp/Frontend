@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="homework.css">
     <style>
         mark {
-            background-color: yellow !important;
+            background-color: yellow;
         }
     </style>
 </head>
@@ -217,31 +217,28 @@ Amongst the responses the thesis received include:
     </a>
 </footer> 
 <script>
-    console.log("dok reread");
-    const dok_words = document.querySelector(".main-body").innerText;
-    wordCount = dok_words.replaceAll('\n', ' ').split(' ').length;
+    wordCount = document.querySelector(".main-body").innerText.replaceAll('\n', ' ').split(' ').length;
     readingTime = Math.ceil(wordCount / 183);
 
-    console.log("Reading time is: ", readingTime, ' minutes');
     header_ = document.querySelector("header");
     const newNode = document.createElement("p");
     newNode.innerHTML = '<div class="article readtime">Article reading time is ' + readingTime.toString() + " minutes.</div>";
     header_.appendChild(newNode);
-    var dok = document.querySelector(".main-body");
-    const dok_ih = dok.innerHTML;
-    //console.log(dok);
+    
+    const dok_ih = document.querySelector(".main-body").innerHTML;
 
-    searchbar = document.querySelector("#sb");
-    searchbar.addEventListener("keyup", (e) => highlightWord(e));
+   
+    document.querySelector("#sb").addEventListener("keyup", (e) => highlightWord(e));
 
     function highlightWord(ev) {
-        txt = document.querySelector("#sb").value;
-        console.log(txt, ev);
-        let dok2 = dok_ih;
+        let txt = document.querySelector("#sb").value;
         let replaceText = '<mark>' + txt + '</mark>'
-        newtxt = dok2.replaceAll(txt, replaceText);
+        pos_in_txt = document.querySelector('.main-body').innerText.search(txt);
+        console.log(pos_in_txt);
+        if (txt.length > 0 & pos_in_txt >= 0) {
+        let newtxt = dok_ih.replaceAll(txt, replaceText);
         document.querySelector(".main-body").innerHTML = newtxt;
-        console.log(replaceText);
+        }
     }
     
 </script>
