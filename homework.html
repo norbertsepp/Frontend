@@ -232,7 +232,7 @@ Amongst the responses the thesis received include:
 
     function highlightWord(ev) {
         let txt = document.querySelector("#sb").value;
-        let replaceText = '<mark>' + txt + '</mark>'
+        let replaceText = `<mark>${txt}</mark>`
         pos_in_txt = document.querySelector('.main-body').innerText.search(txt);
         console.log(pos_in_txt);
         if (txt.length > 0 & pos_in_txt >= 0) {
