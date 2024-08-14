@@ -7,17 +7,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="homework.css">
+    <style>
+        mark {
+            background-color: yellow !important;
+        }
+    </style>
 </head>
 <body>
+    <div class="searchbar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+        </svg>
+        <input type="text" id="sb" placeholder="Search in text">
+    </div>
+    <div class="main-body">
 <header class="display-4">
         The Unreasonable Effectiveness of Mathematics in the Natural Sciences <br><address class="author">by Eugene Wigner, the famous Hungarian physicist</address>
 </header>
-<div class="searchbar">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-    </svg>
-    <input type="text" id="sb" placeholder="Keresés a szövegben">
-</div>
+
 <p>
     <a id="top" href="#bottom" title="Jump to bottom of page">
         <span class="subtitle">
@@ -210,29 +217,34 @@ Amongst the responses the thesis received include:
     </a>
 </footer> 
 <script>
-    const dok = document.body.innerHTML;
-    wordList = document.body.innerText.replaceAll('\n', ' ').split(' ');
-    wordCount = wordList.length;
+    console.log("dok reread");
+    const dok_words = document.querySelector(".main-body").innerText;
+    wordCount = dok_words.replaceAll('\n', ' ').split(' ').length;
     readingTime = Math.ceil(wordCount / 183);
-    console.log(dok);
+
     console.log("Reading time is: ", readingTime, ' minutes');
     header_ = document.querySelector("header");
     const newNode = document.createElement("p");
     newNode.innerHTML = '<div class="article readtime">Article reading time is ' + readingTime.toString() + " minutes.</div>";
     header_.appendChild(newNode);
+    var dok = document.querySelector(".main-body");
+    const dok_ih = dok.innerHTML;
+    //console.log(dok);
 
     searchbar = document.querySelector("#sb");
-    searchbar.addEventListener("keydown", (e) => console.log(searchbar.value));
+    searchbar.addEventListener("keyup", (e) => highlightWord(e));
 
-    function highlightWord(txt) {
-        console.log(txt);
-        let dok2 = dok;
-        let replaceText = '<span style="highlighted">' + txt + '</span>'
+    function highlightWord(ev) {
+        txt = document.querySelector("#sb").value;
+        console.log(txt, ev);
+        let dok2 = dok_ih;
+        let replaceText = '<mark>' + txt + '</mark>'
         newtxt = dok2.replaceAll(txt, replaceText);
-        document.body.innerHTML = newtxt;
+        document.querySelector(".main-body").innerHTML = newtxt;
+        console.log(replaceText);
     }
     
 </script>
-
+</div>
 </body>
 </html>
