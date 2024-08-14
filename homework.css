@@ -204,6 +204,21 @@ form#send-article {
     }
 }
 
+.author-details {
+    color:rgba(2, 63, 156, 0.8);
+    padding: 3rem;
+    background-color: var(--aside-color);
+}
+
+table {
+    padding: 1em;
+    margin: auto;
+    width: 60%;
+}
+
+th {
+    margin: 20px;
+}
 
 @media screen and (max-width: 360px) {
     body {
